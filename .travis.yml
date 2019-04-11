@@ -1,0 +1,13 @@
+language: bash
+services: docker
+
+cache:
+  directories:
+      - node_modules
+
+env:
+  - CI=true
+
+script:
+- docker build -t test10:latest .
+- docker run --name tester test10:latest npm test 
